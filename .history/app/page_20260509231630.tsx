@@ -149,15 +149,15 @@ export default function Home() {
                 width={1000}
                 height={100}
               />
-              <div className="
+              div className="
                 absolute
-                top-[20%]
-                sm:top-[20%]
+                top-[35%]
+                sm:top-[50%]
                 left-1/2
                 -translate-x-1/2
                 -translate-y-1/2
                 text-black
-                text-3xl
+                text-2xl
                 sm:text-5xl
                 whitespace-nowrap
               ">

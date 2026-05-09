@@ -157,7 +157,7 @@ export default function Home() {
                 -translate-x-1/2
                 -translate-y-1/2
                 text-black
-                text-3xl
+                text-2xl
                 sm:text-5xl
                 whitespace-nowrap
               ">

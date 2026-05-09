@@ -50,43 +50,6 @@ export default function Home() {
     }
   };
 
-  const targetDate = new Date("2026-06-20T00:00:00");
-
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate.getTime() - now;
-
-      if (distance <= 0) {
-        clearInterval(interval);
-        return;
-      }
-
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) /
-          (1000 * 60 * 60)
-        ),
-        minutes: Math.floor(
-          (distance % (1000 * 60 * 60)) /
-          (1000 * 60)
-        ),
-        seconds: Math.floor(
-          (distance % (1000 * 60)) / 1000
-        ),
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
   
   const picturePerFrame = [
     f1, f2, f3, f4, f5,
@@ -101,7 +64,7 @@ export default function Home() {
       setFrame((prev) =>
         prev < picturePerFrame.length - 1 ? prev + 1 : 0
       );
-    }, 200);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
@@ -114,7 +77,7 @@ export default function Home() {
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans ">
       <audio 
         ref={audioRef} 
-        src="public/assets/music/music1.mp3" 
+        src="/assets/music/music1.mp3" 
         preload="auto" 
         onEnded={() => setIsPlaying(false)}
         onError={handleAudioError}
@@ -129,10 +92,8 @@ export default function Home() {
               height={100}
             />
           </div>
-          {/* <div className="absolute top-10 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-3xl">
-            Hello
-          </div> */}
           <div         
+          // style={{background: 'url(/assets/1.png) no-repeat center,}}
             >          
             <Image 
               src={two} 
@@ -141,7 +102,8 @@ export default function Home() {
               height={100}
             />
           </div>
-          <div   className="relative group w-fit"       
+          <div         
+          // style={{background: 'url(/assets/1.png) no-repeat center,}}
             >
               <Image 
                 src={three}
@@ -149,23 +111,6 @@ export default function Home() {
                 width={1000}
                 height={100}
               />
-              <div className="
-                absolute
-                top-[20%]
-                sm:top-[20%]
-                left-1/2
-                -translate-x-1/2
-                -translate-y-1/2
-                text-black
-                text-3xl
-                sm:text-5xl
-                whitespace-nowrap
-              ">
-                {String(timeLeft.days).padStart(2, "0")} :
-                {String(timeLeft.hours).padStart(2, "0")} :
-                {String(timeLeft.minutes).padStart(2, "0")} :
-                {String(timeLeft.seconds).padStart(2, "0")}
-              </div>
           </div>
           <button className="fixed bottom-2 right-2 hover:bg-gray-800 text-pink-700 px-6 py-5 rounded-full shadow-lg hover:shadow-xl transition-all z-50 text-"
             onClick={togglePlayPause}

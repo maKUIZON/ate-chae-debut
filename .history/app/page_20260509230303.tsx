@@ -50,43 +50,21 @@ export default function Home() {
     }
   };
 
-  const targetDate = new Date("2026-06-20T00:00:00");
-
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+  const [count, setCount] = useState(3);
+  const [started, setStarted] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate.getTime() - now;
+    if (count <= 0) {
+      setStarted(true);
+      return;
+    }
 
-      if (distance <= 0) {
-        clearInterval(interval);
-        return;
-      }
+  const timer = setTimeout(() => {
+    setCount((prev) => prev - 1);
+  }, 1000);
 
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) /
-          (1000 * 60 * 60)
-        ),
-        minutes: Math.floor(
-          (distance % (1000 * 60 * 60)) /
-          (1000 * 60)
-        ),
-        seconds: Math.floor(
-          (distance % (1000 * 60)) / 1000
-        ),
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+  return () => clearTimeout(timer);
+}, [count]);
   
   const picturePerFrame = [
     f1, f2, f3, f4, f5,
@@ -129,9 +107,9 @@ export default function Home() {
               height={100}
             />
           </div>
-          {/* <div className="absolute top-10 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-3xl">
+          <div className="absolute top-10 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-3xl">
             Hello
-          </div> */}
+          </div>
           <div         
             >          
             <Image 
@@ -149,22 +127,8 @@ export default function Home() {
                 width={1000}
                 height={100}
               />
-              <div className="
-                absolute
-                top-[20%]
-                sm:top-[20%]
-                left-1/2
-                -translate-x-1/2
-                -translate-y-1/2
-                text-black
-                text-3xl
-                sm:text-5xl
-                whitespace-nowrap
-              ">
-                {String(timeLeft.days).padStart(2, "0")} :
-                {String(timeLeft.hours).padStart(2, "0")} :
-                {String(timeLeft.minutes).padStart(2, "0")} :
-                {String(timeLeft.seconds).padStart(2, "0")}
+              <div className="absolute top-10 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-3xl">
+                Hello
               </div>
           </div>
           <button className="fixed bottom-2 right-2 hover:bg-gray-800 text-pink-700 px-6 py-5 rounded-full shadow-lg hover:shadow-xl transition-all z-50 text-"

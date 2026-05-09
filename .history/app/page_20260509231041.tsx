@@ -149,22 +149,8 @@ export default function Home() {
                 width={1000}
                 height={100}
               />
-              <div className="
-                absolute
-                top-[20%]
-                sm:top-[20%]
-                left-1/2
-                -translate-x-1/2
-                -translate-y-1/2
-                text-black
-                text-3xl
-                sm:text-5xl
-                whitespace-nowrap
-              ">
-                {String(timeLeft.days).padStart(2, "0")} :
-                {String(timeLeft.hours).padStart(2, "0")} :
-                {String(timeLeft.minutes).padStart(2, "0")} :
-                {String(timeLeft.seconds).padStart(2, "0")}
+              <div className="absolute top-70 left-1/2 -translate-x-1/2 -translate-y-1/2 text-black text-5xl sm:text-7xl font-bold">
+               {String(timeLeft.days).padStart(2, "0")} : {String(timeLeft.hours).padStart(2, "0")} : {String(timeLeft.minutes).padStart(2, "0")} : {String(timeLeft.seconds).padStart(2, "0")}
               </div>
           </div>
           <button className="fixed bottom-2 right-2 hover:bg-gray-800 text-pink-700 px-6 py-5 rounded-full shadow-lg hover:shadow-xl transition-all z-50 text-"
