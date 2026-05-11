@@ -1,29 +1,31 @@
-"use client";
+'use client';
 
 import { useEffect, useRef, useState } from "react";
 
-type Props = {
+export default function FadeInOnScroll({
+  children,
+}: {
   children: React.ReactNode;
-  className?: string;
-};
-
-export default function FadeInOnScroll({ children, className = "" }: Props) {
+}) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
+        // Trigger animation when visible
         if (entry.isIntersecting) {
           setIsVisible(true);
         }
       },
       {
-        threshold: 0.2, // trigger when 20% visible
+        threshold: 0.05, // 5% visible before animating
       }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
 
     return () => observer.disconnect();
   }, []);
@@ -32,9 +34,12 @@ export default function FadeInOnScroll({ children, className = "" }: Props) {
     <div
       ref={ref}
       className={`
-        transition-all duration-700 ease-out
-        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-        ${className}
+        transition-all duration-500 ease-out
+        ${
+          isVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-16"
+        }
       `}
     >
       {children}

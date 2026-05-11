@@ -13,7 +13,7 @@ import nine from "../public/assets/9.png";
 import FadeInOnScroll from "./imagecom";
 import playPng from "../public/assets/play.png";
 import { useState, useRef, useEffect } from "react";
-import qr from "../public/assets/qr.png";
+
 
 
 import f1 from "../public/assets/frame/1.jpg"
@@ -114,137 +114,59 @@ export default function Home() {
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans ">
       <audio 
         ref={audioRef} 
-        src="/assets/music/music1.mp3" 
+        src="public/assets/music/music1.mp3" 
         preload="auto" 
         onEnded={() => setIsPlaying(false)}
         onError={handleAudioError}
       />
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between bg-white dark:bg-black sm:items-start">
         <div className="relative">
-          <FadeInOnScroll>
-            <div className="relative group w-fit">
-              <Image
-                src={one}
-                alt="Sample"
-                width={1000}
-                height={100}
-              />
-
-            </div>
-          </FadeInOnScroll>
-          <FadeInOnScroll>
-            <div         
-              >          
-              <Image 
-                src={two} 
-                alt={"asd"}
-                width={1000}
-                height={100}
-              />
-            </div>
-          </FadeInOnScroll>
-          <FadeInOnScroll>
-            <div   className="relative group w-fit"       
-              >
-                <Image 
-                  src={three}
-                  alt={"asd"}
-                  width={1000}
-                  height={100}
-                />
-                <div className="
-                  absolute
-                  top-[40%]
-                  left-1/2
-                  -translate-x-1/2
-                  -translate-y-1/2
-                  text-black
-                  text-3xl
-                  sm:text-5xl
-                  whitespace-nowrap
-                ">
-                  {String(timeLeft.days).padStart(2, "0")} :
-                  {String(timeLeft.hours).padStart(2, "0")} :
-                  {String(timeLeft.minutes).padStart(2, "0")} :
-                  {String(timeLeft.seconds).padStart(2, "0")}
-                </div>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5jyPs-O17hxYxrTCWegEHHXQyA4YLeii0MB0kM3Eh96M5yQ/viewform">
-                <Image
-                  src={qr}
-                  alt="asd"
-                  className="
-                    absolute
-                    top-[27%]
-                    sm:top-[26%]
-                    left-1/2
-                    -translate-x-1/2
-                    -translate-y-1/2
-
-                    w-32
-                    sm:w-40
-                    md:w-52
-                    lg:w-64
-
-                    h-auto
-                  "
-                />
-                </a>
-            </div>
-          </FadeInOnScroll>
-          <FadeInOnScroll>
-            <div         
-              >          
-              <Image 
-                src={four} 
-                alt={"asd"}
-                width={1000}
-                height={100}
-              />
-            </div>
-          </FadeInOnScroll>
-          <FadeInOnScroll>
-            <div         
-              >          
-              <Image 
-                src={five} 
-                alt={"asd"}
-                width={1000}
-                height={100}
-              />
-            </div>
-          </FadeInOnScroll>
-          <FadeInOnScroll>
-            <div         
-              >          
-              <Image 
-                src={six} 
-                alt={"asd"}
+          <div className="relative group w-fit">
+            <Image
+              src={picturePerFrame[frame]}
+              alt="Sample"
               width={1000}
               height={100}
             />
-            </div>
-          </FadeInOnScroll>
-          <FadeInOnScroll>
-            <div>          
+          </div>
+          {/* <div className="absolute top-10 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-3xl">
+            Hello
+          </div> */}
+          <div         
+            >          
+            <Image 
+              src={two} 
+              alt={"asd"}
+              width={1000}
+              height={100}
+            />
+          </div>
+          <div   className="relative group w-fit"       
+            >
               <Image 
-                src={seven} 
+                src={three}
                 alt={"asd"}
                 width={1000}
                 height={100}
               />
-            </div>
-          </FadeInOnScroll>
-          <FadeInOnScroll>
-            <div         
-              >          
-              <Image 
-                src={eight} 
-                alt={"asd"}
-                width={1000}
-                height={100}
-              />
-            </div>
-          </FadeInOnScroll>
+              <div className="
+                absolute
+                top-[20%]
+                sm:top-[20%]
+                left-1/2
+                -translate-x-1/2
+                -translate-y-1/2
+                text-black
+                text-3xl
+                sm:text-5xl
+                whitespace-nowrap
+              ">
+                {String(timeLeft.days).padStart(2, "0")} :
+                {String(timeLeft.hours).padStart(2, "0")} :
+                {String(timeLeft.minutes).padStart(2, "0")} :
+                {String(timeLeft.seconds).padStart(2, "0")} <br>&nbsp;Days
+              </div>
+          </div>
           <button className="fixed bottom-2 right-2 hover:bg-gray-800 text-pink-700 px-6 py-5 rounded-full shadow-lg hover:shadow-xl transition-all z-50 text-"
             onClick={togglePlayPause}
           >
