@@ -169,26 +169,51 @@ export default function Home() {
                   {String(timeLeft.seconds).padStart(2, "0")}
                 </div>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5jyPs-O17hxYxrTCWegEHHXQyA4YLeii0MB0kM3Eh96M5yQ/viewform">
-                <Image
-                  src={qr}
-                  alt="asd"
-                  className="
-                    absolute
-                    top-[27%]
-                    sm:top-[26%]
-                    left-1/2
-                    -translate-x-1/2
-                    -translate-y-1/2
+                  <Image
+                    src={qr}
+                    alt="asd"
+                    className="
+                      absolute
+                      top-[27%]
+                      sm:top-[26%]
+                      left-1/2
+                      -translate-x-1/2
+                      -translate-y-1/2
 
-                    w-32
-                    sm:w-40
-                    md:w-52
-                    lg:w-64
+                      w-32
+                      sm:w-40
+                      md:w-52
+                      lg:w-64
 
-                    h-auto
-                  "
-                />
+                      h-auto
+                    "
+                  />
                 </a>
+               <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d686.3677574475322!2d121.00788983416177!3d14.627240373063769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b6146e334f23%3A0x2a2d1d0be2c42017!2sBettys%20Sans%20rival%20%26%20Catering%20Service%20-%20Cuenco!5e0!3m2!1sen!2sph!4v1778487131219!5m2!1sen!2sph"
+                className="
+                  absolute
+                  top-[70%]
+                  left-1/2
+                  -translate-x-1/2
+                  -translate-y-1/2
+
+                  w-[90%]
+                  sm:w-[80%]
+                  md:w-[90%]
+
+                  h-[350px]
+                  sm:h-[400px]
+                  md:h-[700px]
+
+                  rounded-xl
+                  shadow-lg
+                "
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </FadeInOnScroll>
           <FadeInOnScroll>
