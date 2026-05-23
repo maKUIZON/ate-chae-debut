@@ -9,7 +9,9 @@ import five from "../public/assets/5.png";
 import six from "../public/assets/6.png";
 import seven from "../public/assets/7.png";
 import eight from "../public/assets/8.png";
-import nine from "../public/assets/9.png";
+import ten from "../public/assets/10.png";
+import eleven from "../public/assets/11.png";
+
 import FadeInOnScroll from "./imagecom";
 import playPng from "../public/assets/play.png";
 import { useState, useRef, useEffect } from "react";
@@ -158,7 +160,7 @@ export default function Home() {
                   left-1/2
                   -translate-x-1/2
                   -translate-y-1/2
-                  text-black
+                  text-[#f57fcc]
                   text-3xl
                   sm:text-5xl
                   whitespace-nowrap
@@ -260,10 +262,30 @@ export default function Home() {
             </div>
           </FadeInOnScroll>
           <FadeInOnScroll>
+            <div>          
+              <Image 
+                src={eight} 
+                alt={"asd"}
+                width={1000}
+                height={100}
+              />
+            </div>
+          </FadeInOnScroll>
+          <FadeInOnScroll>
             <div         
               >          
               <Image 
-                src={eight} 
+                src={ten} 
+                alt={"asd"}
+                width={1000}
+                height={100}
+              />
+            </div>
+          </FadeInOnScroll>
+          <FadeInOnScroll>
+            <div>          
+              <Image 
+                src={eleven} 
                 alt={"asd"}
                 width={1000}
                 height={100}
